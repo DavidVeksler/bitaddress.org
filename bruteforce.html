@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css" />
+
+
+
+    <title>bip38 brute force tool</title>
+</head>
+
+<body>
+
+
+    <div class="jumbotron">
+
+        <h1>
+            bip38 brute force tool
+        </h1>
+    </div>
+
+
+
+    <section>
+
+
+        <div class="parameters">
+            <div id="form">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="key">Enc Priv Key</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="key" aria-label="key" aria-describedby="key" value="6PYNMobhCWxwpWdxGLnmdnXj78U3NnhqaWVZiPWMkVadiUjd82jFHFd37D">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="key">Passphrase</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="passphrase" aria-label="passphrase" aria-describedby="passphrase" value="">
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="key">Public Address</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="address" aria-label="address" aria-describedby="address" value="1EgZmVjYGrUVZSY6pFPtDDXzEdy1RvbTza">
+                </div>
+
+
+                <!-- accept a text file -->
+                <input type="file" id="file-input" accept="text/plain" />
+
+            </div>
+            <div id="buttons">
+                <button class="btn btn-primary" onclick="start();">Start></button>
+                <button class="btn btn-danger" onclick="stop();">Stop</button>
+                <button class="btn btn-info" onclick="test();">Test</button>
+            </div>
+        </div>
+        <div id="status" class="status-log">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">1%</div>
+            </div>
+
+            <div id="logger">
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <footer></footer>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script>
+        var ninja = {
+            wallets: {}
+        };
+    </script>
+
+    <!-- <script src="src/ninja.misc.js"></script> -->
+
+    <script src="src/cryptojs.js"></script>
+    <script src="src/cryptojs.blockmodes.js"></script>
+    <script src="src/biginteger.js"></script>
+    <script src="src/ellipticcurve.js"></script>
+    <script src="src/cryptojs.sha256.js"></script>
+    <script src="src/securerandom.js"></script>
+    <script src="src/cryptojs.aes.js"></script>
+    <script src="src/crypto-scrypt.js"></script>
+    <script src="src/cryptojs.pbkdf2.js"></script>
+    <script src="src/cryptojs.hmac.js"></script>
+    <script src="src/cryptojs.ripemd160.js"></script>
+
+
+
+
+
+
+    <script src="src/bitcoinjs-lib.js"></script>
+    <script src="src/bitcoinjs-lib.address.js"></script>
+    <script src="src/bitcoinjs-lib.base58.js"></script>
+    <script src="src/bitcoinjs-lib.ecdsa.js"></script>
+    <script src="src/bitcoinjs-lib.eckey.js"></script>
+    <script src="src/bitcoinjs-lib.util.js"></script>
+
+
+
+    <script src="src/ninja.key.js"></script>
+    <!-- //<script src="src/ninja.misc.js"></script> -->
+    <script src="src/ninja.translator.js"></script>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
