@@ -84,7 +84,7 @@ function doBruteForce(i) {
     if (isRunning && i < dictionaryArray.length) {
         setProgress(i / dictionaryArray.length * 100);
         console.log('check ' + dictionaryArray[i]);
-        passphrase = dictionaryArray[i].trim('/n');
+        passphrase = dictionaryArray[i].replace(/(\r\n|\n|\r)/gm, "");
 
         decryptBip38(passphrase, onComplete);
     }
