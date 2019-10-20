@@ -51,7 +51,8 @@ function readTextFile(file) {
         encryptedKey = $('[aria-label = key]').val();
         address = $('[aria-label = address]').val();
         dictionaryArray = dictionaryFile.split("\n");
-        console.log("passwords to test:" + dictionaryArray.length);
+        document.getElementById("logger").innerHTML = "";
+        log("passwords to test: " + dictionaryArray.length);
 
         doBruteForce(0);
         // debug: decryptBip38('test', onComplete);
@@ -83,10 +84,12 @@ function doBruteForce(i) {
 
     if (isRunning && i < dictionaryArray.length) {
         setProgress(i / dictionaryArray.length * 100);
-        console.log('check ' + dictionaryArray[i]);
-        passphrase = dictionaryArray[i].replace(/(\r\n|\n|\r)/gm, "");
-
+        const passphrase = dictionaryArray[i].replace(/(\r\n|\n|\r)/gm, "")
+        console.log('checking: ' + passphrase);
         decryptBip38(passphrase, onComplete);
+    }
+    else {
+        console.log('none of the passphrases matched :-(')
     }
 }
 
@@ -117,7 +120,7 @@ function test() {
 function decryptBip38(passphrase, onComplete) {
     ninja.privateKey.BIP38EncryptedKeyToByteArrayAsync(encryptedKey, passphrase, function(privBytes) {
         if (privBytes.constructor == Error) {
-            log("fail decryptBip38 " + ", error: " + privBytes.message + ', passphrase:' + passphrase);
+            log("Error: " + ", error: " + privBytes.message + ' Passphrase: ' + passphrase);
             success = false;
         } else {
             var btcKey = new Bitcoin.ECKey(privBytes);
